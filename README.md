@@ -5,7 +5,7 @@ The system allows users to register themselves and receive a unique card similar
 The card contains all the necessary user information and serves as a secure identification document.
 
 The system is designed for agencies to manage user profiles and data efficiently. 
-Agencies can edit user profiles, maintain user data accuracy, and filter through user data using inbuilt queries. 
+Agencies can edit user profiles, maintain user data accuracy, and filter through user data using inbuilt queries built based on DBMS approach. 
 The system enables agencies to track down all family members, ensuring comprehensive user management.
 
 ### One of the key features of the system is the QR scanning facility, which provides a quick and easy way to retrieve user details. 

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+     <title>User Identification </title>
+    <!-- Favicon icon -->
+    <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js" integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <link href="css/style.css" rel="stylesheet">
+  
+    <link rel="stylesheet" href="css/sliderstyle.css">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="index.html">
+                    <b class="logo-abbr"><img src="images/uid.png" alt=""> </b>
+                    <span class="logo-compact"><img src="./images/uid.png" alt=""></span>
+                    <span class="brand-title">
+                        <img id="uidpng"src="images/uid.png" alt="">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">    
+            <div class="header-content clearfix">
+                
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    <div class="input-group icons">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                        </div>
+                        <input type="search" class="form-control" id="glbsearch" placeholder="Search Data" aria-label="Search Dashboard">
+                        <button type="button" id="gender-reset"class="btn mb-1 btn-success ">Reset</button>
+                    </div>
+                
+                </div>
+             
+                <div class="header-right">
+                    <ul class="clearfix">
+                       
+                        
+
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="images/user/1.png" height="40" width="40" alt="">
+                            </div>
+                            <div class="drop-down dropdown-profile   dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        
+                                        <li><a href="login.html" ><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label"><a href="./index.html">Dashboard</a></li>
+ 
+                    <li class="nav-label"><span class="nav-text"><a href="./insert.html">Insert</a></span></li>
+                    <li class="nav-label"><span class="nav-text"><a href="./search.html">Search</a></span></li>
+                    <li class="nav-label"><span class="nav-text"><a href="./Scan.html">Scan QR</a></span></li>
+
+ 
+
+
+
+
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <!-- <div class="content-body">
+            <div class="card">
+                <div class="card-body">
+                   
+                </div>
+            </div>
+        </div> -->
+
+
+
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" id="filtercard" data-ud="d">
+                        <div class="card-body"  >
+                        <h4 class="card-title" id="filterhead">Filter</h4>
+                        <div class="row align-items-center">
+                            <div class="col-md-4 col-lg-3">
+                                <div class="nav flex-column nav-pills">
+                                    <a href="#v-pills-gender" data-toggle="pill" class="nav-link active show">Gender</a> 
+                                    <a href="#v-pills-state" data-toggle="pill" class="nav-link">State</a> 
+                                    <a href="#v-pills-age" data-toggle="pill" class="nav-link">Age</a>
+                                    <a href="#v-pills-family" data-toggle="pill" class="nav-link">Family</a>
+                                    <a href="#v-pills-dob" data-toggle="pill" class="nav-link">DOB</a>
+                                    <a href="#v-pills-cid" data-toggle="pill" class="nav-link">Center</a>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-lg-9">
+                                <div class="tab-content">
+                                    <div id="v-pills-gender" class="tab-pane fade active show">
+                                        <p>Choose Mutiple Options and Search</p>
+                                        <div class="form-group">
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" name="gender" value="'male'">Male</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" name="gender" value="'female'">Female</label>
+                                            </div>
+                                            <div class="form-check form-check-inline disabled">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" name="gender" value="'Trans'" >Transgender</label>
+                                            </div>
+                                            <button type="button" class="btn mb-1 btn-secondary" id="gender-search">Search</button>
+                                        </div>
+                                    </div>
+
+                                    <div id="v-pills-state" class="tab-pane fade ">
+                                        <p>Select State To be Searched</p>
+                                            <select class="form-control" id="inputState" >
+                                                
+                                                <option selected="selected">Please Select State</option>
+                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="Chandigarh">Chandigarh</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                                <option value="Daman and Diu">Daman and Diu</option>
+                                                <option value="Delhi">Delhi</option>
+                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                <option value="Puducherry">Puducherry</option>
+                                                <option value="Goa">Goa</option>
+                                                <option value="Gujarat">Gujarat</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Karnataka">Karnataka</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Maharashtra">Maharashtra</option>
+                                                <option value="Manipur">Manipur</option>
+                                                <option value="Meghalaya">Meghalaya</option>
+                                                <option value="Mizoram">Mizoram</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Odisha">Odisha</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Rajasthan">Rajasthan</option>
+                                                <option value="Sikkim">Sikkim</option>
+                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                <option value="Telangana">Telangana</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                <option value="West Bengal">West Bengal</option>
+                                            </select>
+                                            <button type="button" class="btn mb-1 btn-secondary" id="state-search">Search</button>
+                                            
+                                            
+                                    </div>
+                                    <div id="v-pills-age" class="tab-pane fade">
+                                        <p>Slide the slider and search Age</p>
+                                        <!-- <section> -->
+                                            <div class="rt-container">
+                                                  <div class="col-rt-12">
+                                                      <div class="Scriptcontent">
+                                                      
+                                                    <!-- Range Slider HTML -->
+                                                          <div slider id="slider-distance">
+                                                        <div>
+                                                            <div inverse-left style="width:70%;"></div>
+                                                            <div inverse-right style="width:70%;"></div>
+                                                            <div range style="left:30%;right:40%;"></div>
+                                                            <span thumb style="left:30%;"></span>
+                                                            <span thumb style="left:60%;"></span>
+                                                            <div sign style="left:30%;">
+                                                            <span id="value">30</span>
+                                                            </div>
+                                                            <div sign style="left:60%;">
+                                                            <span id="value">60</span>
+                                                            </div>
+                                                        </div>
+                                                        <input id="range1"type="range" tabindex="0" value="30" max="100" min="0" step="1" oninput="
+                                                        this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
+                                                        var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                                                        var children = this.parentNode.childNodes[1].childNodes;
+                                                        children[1].style.width=value+'%';
+                                                        children[5].style.left=value+'%';
+                                                        children[7].style.left=value+'%';children[11].style.left=value+'%';
+                                                        children[11].childNodes[1].innerHTML=this.value;" />
+                                                        
+                                                        <input id="range2" type="range" tabindex="0" value="60" max="100" min="0" step="1" oninput="
+                                                        this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
+                                                        var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);
+                                                        var children = this.parentNode.childNodes[1].childNodes;
+                                                        children[3].style.width=(100-value)+'%';
+                                                        children[5].style.right=(100-value)+'%';
+                                                        children[9].style.left=value+'%';children[13].style.left=value+'%';
+                                                        children[13].childNodes[1].innerHTML=this.value;" />
+                                        
+                                                     </div>
+                                                          <!-- End Range Slider HTML -->
+                                                          
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn mb-1 btn-secondary" id="age-search">Search</button>
+                                        <!-- </section> -->
+                                       
+                                    </div>
+                                    
+                                    <div id="v-pills-family" class="tab-pane fade">
+                                        <p>Seach Family Members using Family ID or your Name</p>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="number" id="search-famid"class="form-control" placeholder="Enter Your Family Id">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" id="search-name" class="form-control" placeholder="Enter Your Name">
+                                            </div>
+                                        </div>
+                                
+                                        <button type="button" class="btn mb-1 btn-secondary" id="fam-search">Search</button>
+                                        
+                                    </div>
+                                    <div id="v-pills-dob" class="tab-pane fade">
+                                        <div class="input-daterange input-group" id="date-range">
+                                            <input type="date" id="mfrom" name="val-date" class="form-control">
+                                            <span class="input-group-addon bg-info b-0 text-white"> --to-- </span>
+                                            <input type="date" id="mto" name="val-date" class="form-control" >
+                                        </div>
+                                        <button type="button" class="btn mb-1 btn-secondary" id="date-search">Search</button>
+                                    </div>
+                                    <div id="v-pills-cid" class="tab-pane fade">
+                                        <p>Choose Mutiple Options and Search</p>
+                                        <div class="form-group">
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="cnt" value="Rajajinagar">Rajaginagar</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="cnt" value="Hsr Layout">Hsr Layout</label>
+                                            </div>
+                                            <div class="form-check form-check-inline disabled">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="cnt" value="Mg Road" >Mg Road</label>
+                                            </div>
+                                            <button type="button" class="btn mb-1 btn-secondary" id="cnt-search">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" >
+                            <div class="card-body"  >
+                                
+                                <div class="table-responsive"id="#Content" >
+                                    <table class="table table-striped " id="#F">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Profile</th>
+                                                <th scope="col">First Name</th>
+                                                <th scope="col">Last Name</th>
+                                                <th scope="col">Family</th>
+                                                <th scope="col">Contact</th>
+                                                <th scope="col">Mail</th>
+                                                <th scope="col">Age</th>
+                                                <th scope="col">DOB</th>
+                                                <th scope="col">Gender</th>
+                                                <th scope="col">Address</th>
+                                                <th scope="col">State</th>
+                                                <th scope="col">Pincode</th>
+                                                <th scope="col">EDIT</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody">
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+ 
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="plugins/common/common.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/gleek.js"></script>
+    <script src="js/styleSwitcher.js"></script>
+  
+
+
+
+    
+   
+    
+   
+    <script src="file3.js"></script>
+</body>
+
+</html>

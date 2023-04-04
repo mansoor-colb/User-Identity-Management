@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js" integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <!-- theme meta -->
+  
+     <title>User Identification </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <!-- Pignose Calender -->
+    <link href="./plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Chartist -->
+    <link rel="stylesheet" href="./plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="./plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <!-- Custom Stylesheet -->
+    <link href="./plugins/toastr/css/toastr.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.17.1.min.js"></script>
+    <script src="plotly-2.17.1.min.js"></script>
+    <link href="style.css" rel="stylesheet">
+
+
+    
+
+</head>
+<body>
+    <!-- <button id="cool">hhhhh</button> -->
+
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="index.html">
+                    <b class="logo-abbr"><img src="images/uid.png" alt=""> </b>
+                    <span class="logo-compact"><img src="./images/uid.png" alt=""></span>
+                    <span class="brand-title">
+                        <img id="uidpng"src="images/uid.png" alt="">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">    
+            <div class="header-content clearfix">
+                
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+             
+                <div class="header-right">
+                    <ul class="clearfix">
+                       
+                        
+
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="images/user/1.png" height="40" width="40" alt="">
+                            </div>
+                            <div class="drop-down dropdown-profile   dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        
+                                        <li><a href="login.html" ><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label"><a href="./index.html">Dashboard</a></li>
+ 
+                    <li class="nav-label"><span class="nav-text"><a href="./insert.html">Insert</a></span></li>
+                    <li class="nav-label"><span class="nav-text"><a href="./search.html">Search</a></span></li>
+                    <li class="nav-label"><span class="nav-text"><a href="./Scan.html">Scan QR</a></span></li>
+
+ 
+
+
+
+
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-1">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Total Registration</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white" id="users">4565</h2>
+                                    
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-2">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Total Male</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white" id="tmale">$ 8541</h2>
+                                    
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-male"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Total Female</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white" id="tfemale">0</h2>
+                                    <p class="text-white mb-0"></p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-female"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card gradient-3">
+                            <div class="card-body">
+                                <h3 class="card-title text-white">Total Trans</h3>
+                                <div class="d-inline-block">
+                                    <h2 class="text-white" id="ttrans">0</h2>
+                                    <p class="text-white mb-0"></p>
+                                </div>
+                                <span class="float-right display-5 opacity-5"><i class="fa fa-transgender-alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body pb-0 d-flex justify-content-between">
+                                        <div>
+                                            <h4 class="mb-1">Gender Plot</h4>
+                                            <p>Registrations Based On Gender</p>
+                                            <h3 class="m-0" id="fromto">6756</h3>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="chart-wrapper">
+                                        <canvas id="chart_widget_2"></canvas>
+                                    </div>
+                                    <div class="card-body">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2>State Registration plot</h2>
+                                <div id="tester" ></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+                
+
+
+                <div class="row" id="custrow">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card" >
+                                    <div class="card-body"  >
+                                        <h2>Recent Registrations</h2>
+                                        <div class="table-responsive"id="#Content" >
+                                            <table class="table table-striped " id="#F">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Profile</th>
+                                                        <th scope="col">First Name</th>
+                                                        <th scope="col">Last Name</th>
+                                                        <th scope="col">Family</th>
+                                                        <th scope="col">Contact</th>
+                                                        <th scope="col">Mail</th>
+                                                        <th scope="col">Age</th>
+                                                        <th scope="col">DOB</th>
+                                                        <th scope="col">Gender</th>
+                                                        <th scope="col">Address</th>
+                                                        <th scope="col">State</th>
+                                                        <th scope="col">Pincode</th>
+                                                        <th scope="col">EDIT/DEL</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbody">
+                                                  
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                
+
+
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+       
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="plugins/common/common.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/gleek.js"></script>
+    <script src="js/styleSwitcher.js"></script>
+
+    <!-- Chartjs -->
+    <script src="./plugins/chart.js/Chart.bundle.min.js"></script>
+    <!-- Circle progress -->
+    <script src="./plugins/circle-progress/circle-progress.min.js"></script>
+    <!-- Datamap -->
+    <script src="./plugins/d3v3/index.js"></script>
+    <script src="./plugins/topojson/topojson.min.js"></script>
+    <script src="./plugins/datamaps/datamaps.world.min.js"></script>
+    <!-- Morrisjs -->
+    <script src="./plugins/raphael/raphael.min.js"></script>
+    <script src="./plugins/morris/morris.min.js"></script>
+    <!-- Pignose Calender -->
+    <script src="./plugins/moment/moment.min.js"></script>
+    <script src="./plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+    <!-- ChartistJS -->
+    <script src="./plugins/chartist/js/chartist.min.js"></script>
+    <script src="./plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+
+
+
+    <script src="./js/dashboard/dashboard-1.js"></script>
+  
+    <script src="./plugins/toastr/js/toastr.min.js"></script>
+    <script src="./plugins/toastr/js/toastr.init.js"></script>
+    <script src="file.js"></script>
+</body>
+
+</html>
+

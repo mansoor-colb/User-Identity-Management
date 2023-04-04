@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript">  </script>
+    <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js" integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+
+
+  
+     <title>User Identification </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link href="./plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+<style>
+     body{
+                                    /* display:flex;
+                                    justify-content:center;
+                                    align-items:center;
+                                    flex-direction:column; */
+                                    width:100%;
+                                    height:90vh;
+                                  }
+                                  
+                                  #reader__scan_region{
+                                    width:550px;
+                                    height:350px;
+                                  }
+                                  #reader__camera_permission_button{
+                                  padding:10px;
+                                  font-size:22px;
+                                  }
+                                  #reader__dashboard_section_swaplink{
+                                  display:none;
+                                  }
+                                  #container{
+                                    display:flex;
+                                    justify-content:center;
+                                    align-items:center;
+                                   
+                                  
+                                  }
+                                  #reader{
+                                      width:450px;
+                                      height:350px;
+                                      border:1px solid black;
+                                      border-radius:15px;
+                                  }
+                                  
+                                  
+                                    </style>
+</head>
+<body>
+
+    <!-- <button id="cool">hhhhh</button> -->
+
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="index.html">
+                    <b class="logo-abbr"><img src="images/uid.png" alt=""> </b>
+                    <span class="logo-compact"><img src="./images/uid.png" alt=""></span>
+                    <span class="brand-title">
+                        <img id="uidpng"src="images/uid.png" alt="">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">    
+            <div class="header-content clearfix">
+                
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+             
+                <div class="header-right">
+                    <ul class="clearfix">
+                       
+                        
+
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="images/user/1.png" height="40" width="40" alt="">
+                            </div>
+                            <div class="drop-down dropdown-profile   dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        
+                                        <li><a href="login.html" ><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="nk-sidebar">           
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label"><a href="./index.html">Dashboard</a></li>
+ 
+                    <li class="nav-label"><span class="nav-text"><a href="./insert.html">Insert</a></span></li>
+                    <li class="nav-label"><span class="nav-text"><a href="./search.html">Search</a></span></li>
+                    <li class="nav-label"><span class="nav-text"><a href="./Scan.html">Scan QR</a></span></li>
+
+ 
+
+
+
+
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+          
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                               
+                                    <div id="header"> <h1>Scan UID QR</h1></div>
+                                  
+                                  <div id="container">
+                                  <div id="reader"></div>
+                                  </div>
+                                    <!-- <div class="center">
+                                      <button id="open-popup">Open Popup</button>
+                                    </div> -->
+                                    
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+        </div>
+ 
+    </div>
+   
+    <script>
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+        
+            $.ajax({
+        
+        url:`http://localhost:1234/hashsearch?uid=${decodedText}`,
+        type: 'GET',
+        dataType: "json",
+   
+    
+        success: function(res){
+            if(res.status==200){
+                swal(`User Found \n ${res.response[0].Fname} ${res.response[0].Lname}`)
+            }
+            else if(res.status==500){
+                swal("Not Found", "Invalid QR ", "error");
+            }
+            setTimeout(function(){
+      
+      document.location.href=`view.html?uid=${res.response[0].Hashcode}`
+   },2000)
+        }
+        })
+   
+  
+        
+    };
+    
+ 
+    
+    let html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader",
+     { facingMode: "environment" },
+      { fps: 9, qrbox: {width: 50, height: 50} },
+      /* verbose= */ false);
+     html5QrcodeScanner.render(qrCodeSuccessCallback);
+    document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
+      // document.getElementById("open-popup-btn").style.display = "block";
+      document.getElementsByClassName("popup")[0].classList.remove("active");
+    });
+  
+      </script>
+    <script src="plugins/common/common.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/gleek.js"></script>
+    <script src="js/styleSwitcher.js"></script>
+    <script src="./plugins/sweetalert/js/sweetalert.min.js"></script>
+    <script src="./plugins/sweetalert/js/sweetalert.init.js"></script>
+
+    <script src="file.js"></script>
+</body>
+
+</html>
+

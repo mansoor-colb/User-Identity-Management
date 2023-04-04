@@ -1,0 +1,212 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    /* border-radius: 15px ; */
+    /* -webkit-border-radius: 15px ;
+    -moz-border-radius: 15px ;
+    -ms-border-radius: 15px ;
+    -o-border-radius: 15px ; */
+}
+body{
+    position: relative;
+    min-height:100vh;
+    width: 100%;
+    /* padding: 0 0px; */
+    background: #eff7ff;
+    overflow-x: hidden;
+    
+}
+section{
+    width: 100%;
+    min-height: 80vh;
+    position:relative;
+    background: rgb(156, 185, 240);
+    padding: 12px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+section .display{
+    position: relative;
+    width:40%;
+    /*height:100%;
+    */margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius:7px ;
+    -webkit-border-radius:7px ;
+    -moz-border-radius:7px ;
+    -ms-border-radius:7px ;
+    -o-border-radius:7px ;
+}
+section .content{
+    margin: 10px;
+    padding: 20px;
+    position: relative;
+    width:60%;
+    /*height:100%;
+    */background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius:7px;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    -ms-border-radius:7px;
+    -o-border-radius:7px;
+    -webkit-border-radius:7px;
+}
+.display .images{
+
+    position: relative;
+    /* margin: 10px auto; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    /* height:40%; */
+
+    
+    
+}
+.small{
+    position: relative;
+    background: darkgoldenrod;
+    filter: brightness(23%);
+    -webkit-filter: brightness(23%);
+    transition:0.3s ;
+    -webkit-transition:0.3s ;
+    -moz-transition:0.3s ;
+    -ms-transition:0.3s ;
+    -o-transition:0.3s ;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.small a{
+    grid-area: a;
+}
+.small b{
+    grid-area: b;
+}
+.small c{
+    grid-area: c;
+}
+
+.big{
+
+    width: 200px;
+    height: 200px;
+    object-fit:contain;
+    /* background-color: darkgreen; */
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.data{ width:100%;
+    /* height:40%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}.data p{
+    /* margin: 5px; */
+    padding: 5px;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    color: #fff;
+    opacity: 0.8;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.data p:hover{
+    padding: 7px;
+    letter-spacing: 3px;
+    opacity: 1;
+}
+
+   
+
+.data p a span,.data p a{
+    text-decoration: none;
+    margin-right: 3px;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.9em;
+    vertical-align: middle;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+img{
+    border-radius: 45px;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.small:hover{
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+}
+
+ul{
+       /* list-style-position: inside; */
+        /* line-height: 1.5em; */
+        list-style-type: none;
+        /* list-style-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4621/treehouse-marker.png); */
+      
+}
+li{
+    margin-top: 20px;
+    border-left: 2px solid red;
+    padding-left: 10px;
+}
+#qr{
+    position: absolute;
+    right: 70px;
+    bottom: 100px;
+    /* width: 100%; */
+    
+   
+}
+#qrimg{
+    border-radius: 0px;
+    width: 150px;
+    height: 150px;
+    object-fit: fill;
+}
+#memberimg{
+    transform: scale(1) !important;
+}
+#memberimg:hover{
+    transform: scale(1.1) !important;
+}
